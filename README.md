@@ -17,7 +17,9 @@ cd sudoku
 pod install
 ```
 
-3. Open `sudoku.xcworkspace` in Xcode and you're good to go!
+3. Open `sudoku.xcworkspace` in Xcode, easy as that!
+
+![easy peasy lemon squeezy](https://media1.tenor.com/images/a09ae6c2b522948386bbd628dd7848d0/tenor.gif)
 
 
 

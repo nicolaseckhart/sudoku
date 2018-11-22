@@ -7,4 +7,5 @@ target 'sudoku' do
 
   # Pods for sudoku
   pod 'Toast-Swift', '~> 4.0.0'
+  pod 'AEXML'
 end

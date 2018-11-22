@@ -28,28 +28,7 @@ class ViewController: UIViewController {
     // ============================================
     
     // Initialize a new board with starting values and solutions
-    var board: Board = Board(values: [
-            5, 3, 4, 6, 7, 8, 9, 1, 2,
-            6, 7, 2, 1, 9, 5, 0, 4, 8,
-            1, 9, 8, 3, 4, 2, 5, 6, 7,
-            8, 5, 9, 7, 6, 1, 4, 2, 3,
-            4, 2, 6, 0, 5, 3, 7, 9, 1,
-            7, 1, 3, 9, 2, 4, 8, 5, 6,
-            9, 6, 1, 5, 3, 7, 2, 8, 4,
-            2, 8, 0, 4, 1, 0, 6, 0, 5,
-            3, 4, 5, 2, 8, 6, 1, 7, 9
-        ], solutions: [
-            5, 3, 4, 6, 7, 8, 9, 1, 2,
-            6, 7, 2, 1, 9, 5, 3, 4, 8,
-            1, 9, 8, 3, 4, 2, 5, 6, 7,
-            8, 5, 9, 7, 6, 1, 4, 2, 3,
-            4, 2, 6, 8, 5, 3, 7, 9, 1,
-            7, 1, 3, 9, 2, 4, 8, 5, 6,
-            9, 6, 1, 5, 3, 7, 2, 8, 4,
-            2, 8, 7, 4, 1, 9, 6, 3, 5,
-            3, 4, 5, 2, 8, 6, 1, 7, 9
-        ]
-    )
+    var board: Board = Board()
     var gameStarted: Bool = false
     var players: [Player] = []
     var active: Int = 0
@@ -57,7 +36,7 @@ class ViewController: UIViewController {
     // ============================================
     // =              OUTLET ACTIONS              =
     // ============================================
-
+    
     // This function is called for the action button
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         if (!gameStarted) {
@@ -100,7 +79,7 @@ class ViewController: UIViewController {
     // This function is called for each of the 81 field buttons
     @IBAction func fieldPressed(_ sender: UIButton) {
         // Skip if game has not started, board is locked or player has already selected another field
-        if (gameStarted && !board.fields[sender.tag].locked && players[active].isSelectionPossible(fieldNumber: sender.tag)) {
+        if (gameStarted && !board.getField(fieldNumber: sender.tag).isLocked() && players[active].isSelectionPossible(fieldNumber: sender.tag)) {
             updateField(fieldButton: sender)
             players[active].selectField(fieldNumber: sender.tag)
         }
@@ -127,8 +106,8 @@ class ViewController: UIViewController {
     
     func updateButtonTitles() {
         for fieldButton in fieldButtons {
-            if (board.fields[fieldButton.tag].value != 0) {
-                fieldButton.setTitle(board.fields[fieldButton.tag].getLabel(), for: .normal)
+            if (board.getField(fieldNumber: fieldButton.tag).getValue() != 0) {
+                fieldButton.setTitle(board.getField(fieldNumber: fieldButton.tag).getLabel(), for: .normal)
                 fieldButton.setTitleColor(UIColor.gray, for: .normal)
             } else {
                 fieldButton.setTitle("", for: .normal)
@@ -138,11 +117,11 @@ class ViewController: UIViewController {
     
     func updateField(fieldButton: UIButton) {
         let fieldNumber = fieldButton.tag
-        board.fields[fieldNumber].increment()
-        fieldButton.setTitle(board.fields[fieldNumber].getLabel(), for: .normal)
-        if (board.fields[fieldNumber].isSolved()) {
+        board.getField(fieldNumber: fieldNumber).increment()
+        fieldButton.setTitle(board.getField(fieldNumber: fieldNumber).getLabel(), for: .normal)
+        if (board.getField(fieldNumber: fieldNumber).isSolved()) {
             fieldButton.setTitleColor(UIColor.gray, for: .normal)
-            board.fields[fieldNumber].lock()
+            board.getField(fieldNumber: fieldNumber).lock()
         }
     }
     
@@ -188,28 +167,8 @@ class ViewController: UIViewController {
         }
         
         gameStarted = false
-        board = Board(values: [
-                5, 3, 4, 6, 7, 8, 9, 1, 2,
-                6, 7, 2, 1, 9, 5, 0, 4, 8,
-                1, 9, 8, 3, 4, 2, 5, 6, 7,
-                8, 5, 9, 7, 6, 1, 4, 2, 3,
-                4, 2, 6, 0, 5, 3, 7, 9, 1,
-                7, 1, 3, 9, 2, 4, 8, 5, 6,
-                9, 6, 1, 5, 3, 7, 2, 8, 4,
-                2, 8, 0, 4, 1, 0, 6, 0, 5,
-                3, 4, 5, 2, 8, 6, 1, 7, 9
-            ], solutions: [
-                5, 3, 4, 6, 7, 8, 9, 1, 2,
-                6, 7, 2, 1, 9, 5, 3, 4, 8,
-                1, 9, 8, 3, 4, 2, 5, 6, 7,
-                8, 5, 9, 7, 6, 1, 4, 2, 3,
-                4, 2, 6, 8, 5, 3, 7, 9, 1,
-                7, 1, 3, 9, 2, 4, 8, 5, 6,
-                9, 6, 1, 5, 3, 7, 2, 8, 4,
-                2, 8, 7, 4, 1, 9, 6, 3, 5,
-                3, 4, 5, 2, 8, 6, 1, 7, 9
-            ]
-        )
+        board = Board()
         updateButtonTitles()
     }
 }
+

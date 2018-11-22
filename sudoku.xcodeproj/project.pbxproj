@@ -18,6 +18,7 @@
 		7F27D8D921A5C44600E2CDB0 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27D8D821A5C44500E2CDB0 /* Board.swift */; };
 		7F27D8DD21A5D41400E2CDB0 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27D8DC21A5D41400E2CDB0 /* Stopwatch.swift */; };
 		7F6B0A2D21A5F23500BF1025 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6B0A2C21A5F23500BF1025 /* Player.swift */; };
+		7F6B0A2F21A6A70A00BF1025 /* sudoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F6B0A2E21A6A70900BF1025 /* sudoku.xml */; };
 		BF80A92FADF894F6CC31EE5A /* Pods_sudoku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4531480C1E973A33B22B6622 /* Pods_sudoku.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7F27D8D821A5C44500E2CDB0 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		7F27D8DC21A5D41400E2CDB0 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		7F6B0A2C21A5F23500BF1025 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7F6B0A2E21A6A70900BF1025 /* sudoku.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sudoku.xml; sourceTree = "<group>"; };
 		DBE8D12185B5148B1FBB0660 /* Pods-sudoku.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sudoku.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sudoku/Pods-sudoku.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				7F27D8D821A5C44500E2CDB0 /* Board.swift */,
 				7F27D8DC21A5D41400E2CDB0 /* Stopwatch.swift */,
 				7F6B0A2C21A5F23500BF1025 /* Player.swift */,
+				7F6B0A2E21A6A70900BF1025 /* sudoku.xml */,
 			);
 			path = sudoku;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				7F27D8CD21A5956F00E2CDB0 /* LaunchScreen.storyboard in Resources */,
 				7F27D8D521A5957E00E2CDB0 /* grid.png in Resources */,
 				7F27D8CA21A5956F00E2CDB0 /* Assets.xcassets in Resources */,
+				7F6B0A2F21A6A70A00BF1025 /* sudoku.xml in Resources */,
 				7F27D8C521A5956E00E2CDB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,12 +211,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sudoku/Pods-sudoku-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

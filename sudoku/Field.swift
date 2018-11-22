@@ -9,9 +9,9 @@
 import Foundation
 
 class Field {
-    var value: Int
-    var solution: Int
-    var locked: Bool
+    private var value: Int
+    private var solution: Int
+    private var locked: Bool
     
     init(startValue: Int, solution: Int) {
         self.value = startValue
@@ -41,7 +41,23 @@ class Field {
         locked = false
     }
     
+    func isLocked() -> Bool {
+        return locked
+    }
+    
     func getLabel() -> String {
         return String(value)
+    }
+    
+    func getValue() -> Int {
+        return value
+    }
+    
+    func setValue(value: Int) {
+        self.value = value
+    }
+    
+    func getSolution() -> Int {
+        return solution
     }
 }

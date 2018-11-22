@@ -1,16 +1,20 @@
 PODS:
+  - AEXML (4.3.3)
   - Toast-Swift (4.0.0)
 
 DEPENDENCIES:
+  - AEXML
   - Toast-Swift (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AEXML
     - Toast-Swift
 
 SPEC CHECKSUMS:
+  AEXML: 601f41fcaa7bda7605cad153b0f43db9ec006c0f
   Toast-Swift: 594b5c5e5129f15438e410207e43287f027b3c00
 
-PODFILE CHECKSUM: 2913ae71666bc0c911f53b20e04e6444008d74ed
+PODFILE CHECKSUM: cd2ff89eae7a73fa49d351b138ef3c425ba9ac33
 
 COCOAPODS: 1.5.3

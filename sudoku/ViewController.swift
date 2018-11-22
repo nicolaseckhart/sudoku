@@ -119,6 +119,7 @@ class ViewController: UIViewController {
         let fieldNumber = fieldButton.tag
         board.getField(fieldNumber: fieldNumber).increment()
         fieldButton.setTitle(board.getField(fieldNumber: fieldNumber).getLabel(), for: .normal)
+        // TODO: Move field lock into the selectionCheck around line 53
         if (board.getField(fieldNumber: fieldNumber).isSolved()) {
             fieldButton.setTitleColor(UIColor.gray, for: .normal)
             board.getField(fieldNumber: fieldNumber).lock()

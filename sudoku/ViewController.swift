@@ -41,9 +41,9 @@ class ViewController: UIViewController {
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         if (!gameStarted) {
             // If not yet startet, begin with player 1
-            players[active].startClock()
             gameStarted = true
             sender.setTitle("End Turn", for: .normal)
+            players[active].startClock()
         } else if (players[active].madeSelection()) {
             // Only end turn if player input a number
             players[active].stopClock()
@@ -51,6 +51,11 @@ class ViewController: UIViewController {
             // Check player input and fetch time bonus / punishment
             let playerSelection = players[active].getSelection()!
             let result = board.checkChanges(fieldNumber: playerSelection)
+            
+            if (board.getField(fieldNumber: playerSelection).isSolved()) {
+                fieldButtons[playerSelection].setTitleColor(UIColor.gray, for: .normal)
+                board.getField(fieldNumber: playerSelection).lock()
+            }
             
             // Update the fieldButton title in case the field value was reset
             updateButtonTitles()
@@ -119,11 +124,6 @@ class ViewController: UIViewController {
         let fieldNumber = fieldButton.tag
         board.getField(fieldNumber: fieldNumber).increment()
         fieldButton.setTitle(board.getField(fieldNumber: fieldNumber).getLabel(), for: .normal)
-        // TODO: Move field lock into the selectionCheck around line 53
-        if (board.getField(fieldNumber: fieldNumber).isSolved()) {
-            fieldButton.setTitleColor(UIColor.gray, for: .normal)
-            board.getField(fieldNumber: fieldNumber).lock()
-        }
     }
     
     func switchActivePlayer() {

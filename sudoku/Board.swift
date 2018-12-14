@@ -25,7 +25,7 @@ class Board {
         }
         
         // Select a random board and initialize the fields with the values and solutions from it
-        let boardIndex = Int.random(in: 0 ..< 101)
+        let boardIndex = Int(arc4random_uniform(100))+1
         let values = Array(xmlData!.root.children[boardIndex]["values"].attributes["data"]!).map { Int(String($0))! }
         let solutions = Array(xmlData!.root.children[boardIndex]["solutions"].attributes["data"]!).map { Int(String($0))! }
         fields = (0...80).map { Field(startValue: values[$0], solution: solutions[$0]) }
@@ -94,9 +94,9 @@ class Board {
         var mappedArray: [[Int]] = []
         var baseIndex = 0
         
-        for i in Range(0...8) {
+        for i in 0...8 {
             mappedArray.append([])
-            for _ in Range(0...8) {
+            for _ in 0...8 {
                 mappedArray[i].append(array[baseIndex])
                 baseIndex += 1
             }

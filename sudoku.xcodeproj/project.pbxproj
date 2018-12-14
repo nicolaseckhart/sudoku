@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,12 +19,11 @@
 		7F27D8DD21A5D41400E2CDB0 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27D8DC21A5D41400E2CDB0 /* Stopwatch.swift */; };
 		7F6B0A2D21A5F23500BF1025 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6B0A2C21A5F23500BF1025 /* Player.swift */; };
 		7F6B0A2F21A6A70A00BF1025 /* sudoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F6B0A2E21A6A70900BF1025 /* sudoku.xml */; };
-		BF80A92FADF894F6CC31EE5A /* Pods_sudoku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4531480C1E973A33B22B6622 /* Pods_sudoku.framework */; };
+		D64421146C7806CE5D673263 /* Pods_sudoku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC857F519B012070E8A3052 /* Pods_sudoku.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0880B8F7D9531CBE7BE96843 /* Pods-sudoku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sudoku.release.xcconfig"; path = "Pods/Target Support Files/Pods-sudoku/Pods-sudoku.release.xcconfig"; sourceTree = "<group>"; };
-		4531480C1E973A33B22B6622 /* Pods_sudoku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sudoku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32459F847B9C24423636DC6E /* Pods-sudoku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sudoku.release.xcconfig"; path = "Pods/Target Support Files/Pods-sudoku/Pods-sudoku.release.xcconfig"; sourceTree = "<group>"; };
 		7F27D8BC21A5956E00E2CDB0 /* sudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F27D8BF21A5956E00E2CDB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F27D8C121A5956E00E2CDB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +38,8 @@
 		7F27D8DC21A5D41400E2CDB0 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		7F6B0A2C21A5F23500BF1025 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7F6B0A2E21A6A70900BF1025 /* sudoku.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sudoku.xml; sourceTree = "<group>"; };
-		DBE8D12185B5148B1FBB0660 /* Pods-sudoku.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sudoku.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sudoku/Pods-sudoku.debug.xcconfig"; sourceTree = "<group>"; };
+		AE2DA331BA25A3FE81BDD0AD /* Pods-sudoku.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sudoku.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sudoku/Pods-sudoku.debug.xcconfig"; sourceTree = "<group>"; };
+		FAC857F519B012070E8A3052 /* Pods_sudoku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sudoku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,20 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF80A92FADF894F6CC31EE5A /* Pods_sudoku.framework in Frameworks */,
+				D64421146C7806CE5D673263 /* Pods_sudoku.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27BBAB641ABE23BEC85645EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE2DA331BA25A3FE81BDD0AD /* Pods-sudoku.debug.xcconfig */,
+				32459F847B9C24423636DC6E /* Pods-sudoku.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		631F2E56A5BC330C72BF056C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAC857F519B012070E8A3052 /* Pods_sudoku.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F27D8B321A5956E00E2CDB0 = {
 			isa = PBXGroup;
 			children = (
 				7F27D8BE21A5956E00E2CDB0 /* sudoku */,
 				7F27D8BD21A5956E00E2CDB0 /* Products */,
-				9A5E05649DB069D1A2AD9FA8 /* Pods */,
-				A7FE5A61C40170DD12286A38 /* Frameworks */,
+				27BBAB641ABE23BEC85645EA /* Pods */,
+				631F2E56A5BC330C72BF056C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,23 +109,6 @@
 			path = sudoku;
 			sourceTree = "<group>";
 		};
-		9A5E05649DB069D1A2AD9FA8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DBE8D12185B5148B1FBB0660 /* Pods-sudoku.debug.xcconfig */,
-				0880B8F7D9531CBE7BE96843 /* Pods-sudoku.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A7FE5A61C40170DD12286A38 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4531480C1E973A33B22B6622 /* Pods_sudoku.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,11 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F27D8D121A5956F00E2CDB0 /* Build configuration list for PBXNativeTarget "sudoku" */;
 			buildPhases = (
-				BF1A01A3918E98C7A41D4C13 /* [CP] Check Pods Manifest.lock */,
+				00840CBCEE2E520039FB5A7F /* [CP] Check Pods Manifest.lock */,
 				7F27D8B821A5956E00E2CDB0 /* Sources */,
 				7F27D8B921A5956E00E2CDB0 /* Frameworks */,
 				7F27D8BA21A5956E00E2CDB0 /* Resources */,
-				C397FB1A23100E1523EAE736 /* [CP] Embed Pods Frameworks */,
+				7CB9FD0464DAB1EF7EAFF8F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,11 +143,12 @@
 				TargetAttributes = {
 					7F27D8BB21A5956E00E2CDB0 = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 7F27D8B721A5956E00E2CDB0 /* Build configuration list for PBXProject "sudoku" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -180,20 +181,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BF1A01A3918E98C7A41D4C13 /* [CP] Check Pods Manifest.lock */ = {
+		00840CBCEE2E520039FB5A7F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-sudoku-checkManifestLockResult.txt",
 			);
@@ -202,12 +199,10 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C397FB1A23100E1523EAE736 /* [CP] Embed Pods Frameworks */ = {
+		7CB9FD0464DAB1EF7EAFF8F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sudoku/Pods-sudoku-frameworks.sh",
@@ -215,8 +210,6 @@
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
@@ -383,38 +376,34 @@
 		};
 		7F27D8D221A5956F00E2CDB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBE8D12185B5148B1FBB0660 /* Pods-sudoku.debug.xcconfig */;
+			baseConfigurationReference = AE2DA331BA25A3FE81BDD0AD /* Pods-sudoku.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72K69YSQ77;
 				INFOPLIST_FILE = sudoku/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.moba.sudoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		7F27D8D321A5956F00E2CDB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0880B8F7D9531CBE7BE96843 /* Pods-sudoku.release.xcconfig */;
+			baseConfigurationReference = 32459F847B9C24423636DC6E /* Pods-sudoku.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72K69YSQ77;
 				INFOPLIST_FILE = sudoku/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.moba.sudoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

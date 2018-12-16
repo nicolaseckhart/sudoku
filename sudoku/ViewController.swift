@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             switchActivePlayer()
             
             // Indicate change of button function after turn ended
-            sender.setTitle("Start Turn", for: .normal)
+            sender.setTitle("Start Turn \(players[active].getName())", for: .normal)
         } else if (gamePaused) {
             // If game is paused, start next turn
             gamePaused = false
@@ -133,8 +133,8 @@ class ViewController: UIViewController {
         updateButtonTitles()
         
         // Initialize the two players
-        players.append(Player(name: "Player 1", clockLabel: p1Label))
-        players.append(Player(name: "Player 2", clockLabel: p2Label))
+        players.append(Player(name: "P1", clockLabel: p1Label))
+        players.append(Player(name: "P2", clockLabel: p2Label))
     }
     
     // ============================================

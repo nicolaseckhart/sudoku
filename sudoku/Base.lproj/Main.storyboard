@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -924,6 +924,7 @@
                                 <rect key="frame" x="14" y="553" width="345" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -939,11 +940,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSD-6Q-jH5">
+                                <rect key="frame" x="132" y="89" width="115" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="altButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TOj-oN-pQP"/>
+                                    <outletCollection property="gestureRecognizers" destination="rbL-N7-pTV" appends="YES" id="Ihs-ff-M7o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="pjt-8P-qZp" id="V5d-9V-IZb"/>
                         <outlet property="p1Label" destination="jRQ-8t-ZqA" id="vW9-sC-2SR"/>
                         <outlet property="p2Label" destination="vhP-jH-Ucg" id="ndT-Xa-01t"/>
                         <outletCollection property="fieldButtons" destination="P0X-uD-8pb" collectionClass="NSMutableArray" id="y8o-Bp-ACr"/>
@@ -1027,9 +1043,16 @@
                         <outletCollection property="fieldButtons" destination="M90-LO-dv2" collectionClass="NSMutableArray" id="eIg-6x-NQW"/>
                         <outletCollection property="fieldButtons" destination="24B-UJ-Hat" collectionClass="NSMutableArray" id="MzY-CE-MAY"/>
                         <outletCollection property="fieldButtons" destination="fmt-jf-Jg1" collectionClass="NSMutableArray" id="Rpr-gH-fnw"/>
+                        <outletCollection property="altButton" destination="OSD-6Q-jH5" collectionClass="NSMutableArray" id="7ea-EC-Ur3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="2" id="rbL-N7-pTV">
+                    <connections>
+                        <action selector="handleGesture:" destination="BYZ-38-t0r" id="C63-1f-Ayx"/>
+                        <outlet property="delegate" destination="OSD-6Q-jH5" id="kRl-D9-Fos"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>

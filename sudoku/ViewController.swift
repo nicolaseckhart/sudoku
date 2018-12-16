@@ -22,6 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var p1Label: UILabel!
     @IBOutlet weak var p2Label: UILabel!
     
+    // Action Button to start game and end turns
+    @IBOutlet var actionButton: UIButton!
+    
+    // Alternative Button to pause and reset game
+    @IBOutlet weak var altButton: UIButton!
     
     // ============================================
     // =              GAME VARIABLES              =
@@ -30,6 +35,7 @@ class ViewController: UIViewController {
     // Initialize a new board with starting values and solutions
     var board: Board = Board()
     var gameStarted: Bool = false
+    var gamePaused: Bool = false
     var players: [Player] = []
     var active: Int = 0
     
@@ -47,6 +53,8 @@ class ViewController: UIViewController {
         } else if (players[active].madeSelection()) {
             // Only end turn if player input a number
             players[active].stopClock()
+            
+            gamePaused = true
             
             // Check player input and fetch time bonus / punishment
             let playerSelection = players[active].getSelection()!
@@ -76,8 +84,32 @@ class ViewController: UIViewController {
             players[active].clearSelection()
             switchActivePlayer()
             
+            // Indicate change of button function after turn ended
+            sender.setTitle("Start Turn", for: .normal)
+        } else if (gamePaused) {
+            // If game is paused, start next turn
+            gamePaused = false
+            sender.setTitle("End Turn", for: .normal)
+            
+            // show Sudoku board again
+            updateButtonTitles()
+            
             // Start next players clock
             players[active].startClock()
+        }
+    }
+    
+    // This function is called for the alternative Button on tap
+    @IBAction func altButtonPressed(_ sender: UIButton) {
+        self.view.makeToast("Long press button to reset game.")
+    }
+    
+    // This function is called for the alternative Button on 2 second long press
+    @IBAction func handleGesture(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began
+        {
+            self.view.makeToast("Game Reset")
+            resetGame()
         }
     }
     
@@ -111,11 +143,19 @@ class ViewController: UIViewController {
     
     func updateButtonTitles() {
         for fieldButton in fieldButtons {
-            if (board.getField(fieldNumber: fieldButton.tag).getValue() != 0) {
-                fieldButton.setTitle(board.getField(fieldNumber: fieldButton.tag).getLabel(), for: .normal)
+            // Add sudoku values to board if game is not paused
+            if(!gamePaused){
+                if (board.getField(fieldNumber: fieldButton.tag).getValue() != 0) {
+                    fieldButton.setTitle(board.getField(fieldNumber: fieldButton.tag).getLabel(), for: .normal)
+                    fieldButton.setTitleColor(UIColor.gray, for: .normal)
+                } else {
+                    fieldButton.setTitle("", for: .normal)
+                }
+            }
+            // If paused, hide input to avoid cheating
+            else {
+                fieldButton.setTitle("?", for: .normal)
                 fieldButton.setTitleColor(UIColor.gray, for: .normal)
-            } else {
-                fieldButton.setTitle("", for: .normal)
             }
         }
     }
@@ -166,10 +206,12 @@ class ViewController: UIViewController {
             player.clearSelection()
             player.resetClock()
         }
-        
+        players[active].stopClock()
         gameStarted = false
+        gamePaused = false
         board = Board()
         updateButtonTitles()
+        actionButton.setTitle("Start Game", for: .normal)
     }
 }
 
